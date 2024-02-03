@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Free Recall</title>
+    <link href="./public/css/output.css" rel="stylesheet">
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+  </head>
+  <body>
+    <script src="./public/htmx.min.js"></script>
+    <div>
+      <h1 class="text-6xl text-black">
+        Free Recall
+      </h1>
+      <br>
+      <div class="flex gap-x-4">
+        <button
+          class="bg-blue-500 text-white py-2 px-4 rounded"
+          hx-post="/api/material"
+          hx-trigger="click"
+          hx-target="#material-table"
+          hx-swap="innerhtml">
+          Get Material Table
+        </button>
+        <button
+          class="bg-blue-500 text-white py-2 px-4 rounded"
+          hx-post="/api/form"
+          hx-trigger="click"
+          hx-target="#material-table"
+          hx-swap="outerhtml">
+          Insert Material Form
+        </button>
+      </div>
+      <br>
+    </div>
+    <div id="material-table"></div>
+  </body>
+</html>
