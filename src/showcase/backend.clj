@@ -1,5 +1,9 @@
 (ns showcase.backend
   (:require
+   [cheshire.core :as core]
+   [cheshire.core :as json]
+   [clojure.pprint :as pprint]
+   [hiccup2.core :as h]
    [muuntaja.core :as m]
    [reitit.coercion.malli]
    [reitit.dev.pretty :as pretty]
@@ -7,8 +11,11 @@
    [reitit.ring.coercion :as coercion]
    [reitit.ring.malli]
    [reitit.ring.middleware.parameters :as parameters]
+   [ring.adapter.jetty :as adapter]
+   [showcase.highcharts.plots :as plots]
+   [showcase.vega-lite.vega-plots :as vega-lite]
    [showcase.views.index :as index]
-   [ring.adapter.jetty :as adapter]))
+   showcase.views.jupyter))
 
 (def app
   (ring/ring-handler
